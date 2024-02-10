@@ -1,0 +1,28 @@
+Punctajul Obtinut: Total 100.0/100.0
+Valgrind 20/20
+
+O sa incep mai intai prin explicarea functionalitatii fiecarui fisier: - In fisierul Stack.h am implementat toate functiile pe care le-am folosit pentru stivele de UNDO si REDO - In fisierul Queue.h am implementat toate functiile pe care le-am folosit pentru coada cu toate comenzile - IN fisierul main.c am implementat toate functiile pe care le-am folosit la rezolvarea temei
+
+    	*Fisierul Stack.h:
+
+Aici am mai multe functii ce m-au ajutat cand am lucrat cu stivele de UNDO si REDO. Am o functie care imi creeaza o stiva si alta care imi creeaza un nod dintr-o stiva. Mai am functii specifice unuei stive precum, push, pop si top si desigur o functie "DestroyStack" ce are rolul sa imi dealoce toata memoria alocata pentru stive.
+
+    	*Fisierul Queue.h
+
+Aici am mai multe functii ce m-au ajutat cand am lucrat cu coada cu comenzi. Am o functie care imi creeaza o coada si alta care imi creeaza un nod din coada. Mai am functii specifice unuei cozi precum, enqueue, dequeue si front si desigur o functie "DestroyQueue" ce are rolul sa imi dealoce toata memoria alocata pentru coada.
+
+    	*Fisierul main.c
+
+Aici am toate functiile necesare rezolvarii. Am luat fiecare comanda posibila si am creat o functie separata pentru a-mi usura munca. Mai intai am implementat structura cu Banda mea care se numeste "List" si cateva functii in legatura cu Lista precum createListNode, unde aloc memorie pentru un nod din lista si il initializez cu caracterul "#", CreateList, care imi creeaza o lista cu santinela si destroyList care are ca rol dealocarea memoriei folosita pentru lista.
+Prima functie pe care am implementat-o a fost cea de MOVE_LEFT. Ea primeste ca parametru doar degetul si il muta cu o pozitie mai in spate.
+A doua functie este cea de MOVE_RIGHT. Ea primeste ca parametru degetul si daca exista un nod, atunci o sa-l mute cu o pozitie mai in dreapta, daca nu, atunci se va crea un nod si il va muta pe acel nod.
+A treia functie este cea de INSERT_LEFT care primeste ca parametru elementul pe care vrem sa-l inseram, degetul, si fisierul unde vom afisa mesajul de eroare (daca va fi cazul). Daca degetul nu se afla pe prima pozitie, atunci vom crea un nod, ii vom atribui valoarea "elem" si vom face legaturile cu celelalte noduri si vom schimba si pozitia degetului. Daca nodul se afla pe prima pozitie atunci vom afisa mesajul de eroare.
+A patra functie este cea de INSERT_RIGHT, care primeste ca parametru elementul si degetul. Daca nu exista un nod in dreapta atunci vom crea unul, vom realiza legaturile cu banda, ii vom atribui valoarea elem si vom muta si pozitia degetului. Daca exista un nod un dreapta, tot mai facem un nod si aceleasi lucruri ca si in cazul existentei unui nod (diferenta se vede la legaturile dintre noduri).
+A cincea functie este cea de MOVE_LEFT_CHAR ce primeste ca parametru elemntul cautat, degetul si fisierul unde afisam mesajul de eroare. Am un nod auxiliar, dupa am parcurs fiecare element din lista si am verificat daca este egal cu degetul. In caz afirmativ dam return, in caz negativ afisam "ERROR".
+A sasea functie este cea de MOVE_RIGHT_CHAR ce primeste ca parametru elemntul, si degetul. Am trecut prin fiecare nod din lista si l-am verificat, daca l-am gasit am dat return, daca nu, am creat un nou nod, i-am atribuit valoarea "elem" si am mutat pozitia degetului.
+Urmatoarele functii au fost cele de WRITE, SHOW si SHOW_CURRENT. La functia de WRITE doar am schimbat valoarea variabilei finger->elem cu "elem". La ShowCurrent am afisiat finger->elem, iar la functia de Show am trecut prin fiecare nod si l-am afisat, iar cand am ajuns la finger am pus caracterul intre "|".
+Urmatoarea functie a fost cea de EXECUTE care primeste ca parametrii coada cu comenzi, degetul, banda, stiva de UNDO si stiva de REDO.
+Am verificat ce comanda e in front-ul cozii si am apelat functia corespunzatoare.
+Urmatoarele functii au fost cele de UNDO si REDO. La fiecare am introdus in stiva de REDO/UNDO pozitia degetului, am mutat degetul si am eliminat pozitia din stiva respectiva.
+
+In main am declarat fiecare variabila de care am avut nevoie, am deschis fiecare fisier si am creat banda, coada de comenzi si stivele de UNDO si REDO. Am folosit un for sa citesc fiecare comanda, am verificat daca este una din comenzile care trebuie pusa in coada sau una din comenzile: EXECUTE, SHOW, SHOWCURRENT, UNDO, REDO. La final am inchis fisierele si am dat free la stive, banda si lista.

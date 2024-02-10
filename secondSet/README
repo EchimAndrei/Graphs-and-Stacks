@@ -1,0 +1,20 @@
+    Mai intai am folosit structurile si functiile pentru Heap-uri de la laborator, precum si algoritmul de prim pe care 
+l-am prelucrat pentru a calcula costul total minim.
+    Am deschis fisierul pentru a citit datele de intrare
+    Mai intai am citit numarul de obiective (noduri) si numarul de drumuri (muchii) si dupa am alocat spatiu pentru graph.
+    Am facut un for care imi citea cate un rand, verificam pentru fiecare cuvant daca exista in vectorul meu de cuvinte, 
+daca nu atunci il introduceam, daca da, atunci saream peste el.
+    Ulterior, am salvat pozitia pentru fiecare cuvant si am introdus muhcia folosind functia de la laborator "insert_edge_list".
+
+    Dupa am facut un vector de vizitati care are rolul sa contorizeze daca fiecare nod a fost vizitat sau nu. Initial acesta este declarat cu 0.
+    Desigur, am avut nevoie si de un contor care va tine cont de insule si un vector de costuri.
+    Am facut un for care ia fiecare nod din graph si am verificat daca nodul respectiv este vizitat. Daca acesta nu era vizitat 
+atunci am apelat prim pentru el si l-am marcat ca fiind vizitat. Apoi am salvat costul insulei in vectorul de costuri si am crescut nr de insule.
+
+    Functia Prim: Aceasta ia ca parametrii graph-ul, pozitia de start a nodului (acest lucru ma ajuta sa trec de la un subgraph la altul), 
+vectorul de vizitati (o sa fie modificat in functie pe masura ce vizitam alte noduri) si costul drumului minim.
+    Singurele modificari pe le-am adus algoritmului sunt aflate in while-ul unde parcurg heap-ul. Daca dau de un drum cu cost infinit, atunci il 
+opresc si adun la cost distanta minima a fiecarui nod, urmand sa-l declar ca fiind vizitat. O alta modificare ar fi ca in loc sa incep mereu de la pozitia 0, 
+incep de la start (inainte de while).
+
+    Dupa ce am terminat, sortez vectorul de costuri si afisez in fisier numarul de insule si costul fiecarei insule in ordine crescatoare.
